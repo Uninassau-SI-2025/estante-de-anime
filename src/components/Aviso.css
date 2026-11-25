@@ -1,0 +1,41 @@
+.aviso {
+  position: fixed;
+  left: 50%;
+  bottom: 16px;
+  z-index: 9;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  max-width: calc(100vw - 32px);
+  padding: 10px 12px 10px 16px;
+  border-radius: 14px;
+  background: var(--tinta);
+  color: var(--papel);
+  font-size: 0.88rem;
+  box-shadow: 0 8px 24px hsl(248 40% 10% / 0.25);
+  opacity: 0;
+  pointer-events: none;
+  transform: translateX(-50%) translateY(20px);
+}
+
+.aviso.visivel {
+  opacity: 1;
+  pointer-events: auto;
+  transform: translateX(-50%) translateY(0);
+  transition: opacity 0.2s, transform 0.2s;
+}
+
+.aviso button {
+  padding: 6px 10px;
+  border: 0;
+  border-radius: 9px;
+  background: hsl(0 0% 50% / 0.3);
+  color: inherit;
+  font-weight: 700;
+}
+
+@media (max-width: 719px) {
+  .aviso {
+    bottom: calc(var(--altura-abas) + 14px);
+  }
+}

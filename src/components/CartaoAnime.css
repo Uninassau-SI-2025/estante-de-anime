@@ -1,0 +1,293 @@
+.cartao {
+  display: flex;
+  flex-direction: column;
+  background: var(--cartao);
+  border: 1px solid var(--linha);
+  border-radius: 8px 8px 16px 16px;
+  overflow: hidden;
+  transition: transform 0.15s, box-shadow 0.15s;
+}
+
+@media (hover: hover) {
+  .cartao:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 24px hsl(248 40% 10% / 0.12);
+  }
+}
+
+.cartao-capa {
+  display: block;
+  text-decoration: none;
+}
+
+/* ---------- capa ---------- */
+
+.capa {
+  position: relative;
+  aspect-ratio: 4 / 5;
+  overflow: hidden;
+  background: hsl(var(--matiz) 52% 30%);
+  color: hsl(var(--matiz) 95% 90%);
+}
+
+/* retícula de mangá subindo de baixo pra cima */
+.capa::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: radial-gradient(hsl(var(--matiz) 80% 70% / 0.45) 1.1px, transparent 1.6px);
+  background-size: 7px 7px;
+  -webkit-mask-image: linear-gradient(to top, #000 0%, transparent 70%);
+  mask-image: linear-gradient(to top, #000 0%, transparent 70%);
+}
+
+.capa-jp {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  max-height: calc(100% - 20px);
+  overflow: hidden;
+  writing-mode: vertical-rl;
+  font-family: var(--fonte-titulo);
+  line-height: 1.05;
+  letter-spacing: 0.04em;
+}
+
+.capa-idioma {
+  position: absolute;
+  left: 10px;
+  top: 10px;
+  padding: 3px 7px;
+  border-radius: 6px;
+  background: hsl(0 0% 100% / 0.92);
+  color: #127f92;
+  font-weight: 700;
+  font-size: 0.66rem;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.capa-idioma.legendado {
+  color: #7a6400;
+  background: #fff2b3;
+}
+
+.capa-ano {
+  position: absolute;
+  left: 10px;
+  bottom: 8px;
+  font-weight: 700;
+  font-size: 0.78rem;
+  opacity: 0.85;
+}
+
+.capa-episodio {
+  position: absolute;
+  right: 10px;
+  bottom: 10px;
+  padding: 3px 8px;
+  border-radius: 999px;
+  background: #127f92;
+  color: #fff;
+  font-weight: 700;
+  font-size: 0.74rem;
+}
+
+.carimbo {
+  position: absolute;
+  left: 10px;
+  bottom: 32px;
+  width: 58px;
+  height: 58px;
+  display: grid;
+  place-items: center;
+  border: 3px solid #c8272e;
+  border-radius: 50%;
+  background: hsl(0 0% 100% / 0.88);
+  color: #c8272e;
+  font-family: var(--fonte-titulo);
+  font-size: 0.7rem;
+  letter-spacing: 0.04em;
+  transform: rotate(-14deg);
+  animation: carimbar 0.35s cubic-bezier(0.2, 1.6, 0.4, 1);
+}
+
+.vendo .carimbo {
+  border-color: #127f92;
+  color: #127f92;
+}
+
+.dropado .carimbo {
+  border-color: #5d5880;
+  color: #5d5880;
+  font-size: 0.56rem;
+}
+
+@keyframes carimbar {
+  from {
+    transform: rotate(-14deg) scale(1.9);
+    opacity: 0;
+  }
+  to {
+    transform: rotate(-14deg) scale(1);
+    opacity: 1;
+  }
+}
+
+/* ---------- texto do cartão ---------- */
+
+.cartao-info {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  padding: 10px 12px 12px;
+}
+
+.cartao-info h3 {
+  margin: 0;
+  font-size: 1.02rem;
+  line-height: 1.25;
+}
+
+.cartao-info h3 a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.cartao-info h3 a:hover {
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.cartao-generos {
+  display: flex;
+  justify-content: space-between;
+  gap: 6px;
+  margin: 0;
+  font-size: 0.76rem;
+  font-weight: 700;
+  color: var(--ciano);
+}
+
+.cartao-nota {
+  color: var(--apagado);
+  white-space: nowrap;
+}
+
+.cartao-sinopse {
+  margin: 0;
+  font-size: 0.84rem;
+  color: var(--apagado);
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.cartao-motivo {
+  margin: 2px 0 0;
+  padding: 6px 8px;
+  font-size: 0.84rem;
+  border-left: 3px solid var(--sakura);
+  background: var(--sakura-suave);
+  border-radius: 0 6px 6px 0;
+}
+
+.acoes {
+  margin-top: auto;
+  padding-top: 6px;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 6px;
+}
+
+/* ---------- progresso ---------- */
+
+.progresso {
+  font-size: 0.8rem;
+  color: var(--apagado);
+}
+
+.progresso-atual {
+  margin: 0 0 4px;
+  font-size: 0.82rem;
+  color: var(--apagado);
+}
+
+.progresso-atual b {
+  color: var(--ciano);
+}
+
+.progresso summary {
+  cursor: pointer;
+  font-weight: 700;
+  color: var(--tinta);
+  padding: 2px 0;
+}
+
+.contador {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  margin-top: 6px;
+}
+
+.contador span {
+  flex: 1;
+}
+
+.contador button {
+  width: 34px;
+  height: 34px;
+  padding: 0;
+  border: 1px solid var(--linha);
+  border-radius: 9px;
+  background: var(--papel);
+  font-weight: 700;
+  font-size: 1.05rem;
+  line-height: 1;
+}
+
+.contador button:disabled {
+  opacity: 0.4;
+  cursor: default;
+}
+
+.contador output {
+  min-width: 2.6em;
+  text-align: center;
+  font-weight: 700;
+  color: var(--tinta);
+}
+
+/* no celular o cartão deita: capa do lado, texto do outro */
+@media (max-width: 479px) {
+  .cartao {
+    flex-direction: row;
+  }
+
+  .cartao-capa {
+    flex: 0 0 38%;
+  }
+
+  .cartao .capa {
+    aspect-ratio: auto;
+    height: 100%;
+    min-height: 200px;
+  }
+
+  .cartao-info {
+    min-width: 0;
+    padding: 12px;
+  }
+
+  .cartao .botao {
+    padding: 8px 6px;
+  }
+
+  .cartao-sinopse {
+    -webkit-line-clamp: 4;
+  }
+}

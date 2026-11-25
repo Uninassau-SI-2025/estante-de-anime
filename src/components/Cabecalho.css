@@ -1,0 +1,179 @@
+.topo {
+  position: sticky;
+  top: 0;
+  z-index: 5;
+  background: var(--papel);
+  border-bottom: 1px solid var(--linha);
+}
+
+.marca {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 12px 0 8px;
+}
+
+.marca-nome {
+  font-family: var(--fonte-titulo);
+  font-size: clamp(1.3rem, 4.6vw, 2rem);
+  line-height: 1.05;
+  color: var(--tinta);
+  text-decoration: none;
+}
+
+.marca-jp {
+  display: block;
+  font-size: 0.5em;
+  color: var(--sakura);
+  letter-spacing: 0.2em;
+  margin-bottom: 3px;
+}
+
+.marca-lado {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.resumo {
+  display: flex;
+  gap: 6px;
+}
+
+.resumo-item {
+  min-width: 58px;
+  text-align: center;
+  padding: 4px 8px;
+  border-radius: 10px;
+  background: var(--suave);
+}
+
+.resumo-item b {
+  display: block;
+  font-family: var(--fonte-titulo);
+  font-weight: 400;
+  font-size: 1.2rem;
+  line-height: 1.1;
+}
+
+.resumo-item span {
+  font-size: 0.66rem;
+  color: var(--apagado);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+
+.resumo-item.vendo b {
+  color: var(--ciano);
+}
+
+.resumo-item.vistos b {
+  color: var(--sakura);
+}
+
+.botao-tema {
+  width: 40px;
+  height: 40px;
+  display: grid;
+  place-items: center;
+  border: 1px solid var(--linha);
+  border-radius: 50%;
+  background: var(--cartao);
+  color: var(--apagado);
+}
+
+.barra-geral {
+  height: 4px;
+  background: var(--suave);
+  border-radius: 2px;
+  margin-bottom: 10px;
+  overflow: hidden;
+}
+
+.barra-geral i {
+  display: block;
+  height: 100%;
+  background: linear-gradient(90deg, var(--ciano), var(--sakura));
+  transition: width 0.5s;
+}
+
+.abas {
+  display: flex;
+  gap: 4px;
+}
+
+.aba {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  padding: 8px 4px 10px;
+  font-size: 0.86rem;
+  font-weight: 700;
+  white-space: nowrap;
+  color: var(--apagado);
+  text-decoration: none;
+  border-bottom: 3px solid transparent;
+}
+
+.aba.ativa {
+  color: var(--tinta);
+  border-bottom-color: var(--sakura);
+}
+
+.aba-numero {
+  font-weight: 500;
+  font-size: 0.78em;
+  color: var(--apagado);
+}
+
+/* no celular as abas descem pro rodapé da tela, onde o dedão alcança */
+@media (max-width: 719px) {
+  .resumo-item {
+    min-width: 46px;
+    padding: 4px 6px;
+  }
+
+  .abas {
+    position: fixed;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 8;
+    gap: 0;
+    padding: 4px 6px calc(env(safe-area-inset-bottom, 0px) + 4px);
+    background: var(--cartao);
+    border-top: 1px solid var(--linha);
+  }
+
+  .aba {
+    flex-direction: column;
+    gap: 2px;
+    padding: 6px 2px 4px;
+    font-size: 0.68rem;
+    border-bottom: 0;
+    border-radius: 10px;
+  }
+
+  .aba.ativa {
+    background: var(--suave);
+    color: var(--sakura);
+  }
+
+  .aba svg {
+    width: 22px;
+    height: 22px;
+  }
+
+  .aba-numero {
+    display: none;
+  }
+}
+
+@media (max-width: 419px) {
+  .resumo-item:first-child {
+    display: none;
+  }
+}

@@ -1,0 +1,64 @@
+.trocar-lista {
+  margin-bottom: 12px;
+}
+
+.fora-do-catalogo {
+  margin-top: 26px;
+  padding-top: 16px;
+  border-top: 1px solid var(--linha);
+}
+
+.fora-do-catalogo form {
+  display: flex;
+  gap: 8px;
+  margin: 8px 0;
+  max-width: 520px;
+}
+
+.fora-do-catalogo input {
+  flex: 1;
+  min-width: 0;
+  padding: 10px 12px;
+  border: 1px solid var(--linha);
+  border-radius: 12px;
+  background: var(--cartao);
+}
+
+.fora-do-catalogo input[aria-invalid='true'] {
+  border-color: var(--carimbo);
+}
+
+.erro-formulario {
+  margin: 0 0 8px;
+  font-size: 0.85rem;
+  color: var(--carimbo);
+}
+
+.extras {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin: 12px 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.extras li {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 4px 6px 4px 12px;
+  border: 1px solid var(--linha);
+  border-radius: 999px;
+  background: var(--cartao);
+  font-size: 0.88rem;
+}
+
+.extras button {
+  border: 0;
+  background: none;
+  padding: 2px 6px;
+  color: var(--apagado);
+  font-size: 1rem;
+  line-height: 1;
+}
