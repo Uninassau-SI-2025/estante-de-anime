@@ -1,6 +1,6 @@
 # Minha estante de anime
 
-Site para organizar os animes que já assisti, os que estou assistindo e os que ainda quero ver. Trabalho da disciplina de SEU_CURSO_OU_DISCIPLINA.
+Site para organizar os animes que já assisti, os que estou assistindo e os que ainda quero ver.
 
 **Aluno:** Ronicarlos Ferreira (37012676)
 **Framework:** React 18 (com Vite e React Router)
